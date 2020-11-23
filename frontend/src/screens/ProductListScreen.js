@@ -51,6 +51,7 @@ const ProductListScreen = ({ history }) => {
         dispatch, 
         history, 
         userInfo, 
+        // createdProduct._id,
         successDelete, 
         successCreate, 
         createProduct
