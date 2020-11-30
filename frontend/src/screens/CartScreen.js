@@ -31,10 +31,12 @@ const CartScreen = ({ match, location, history }) => {
 
     return (
         <Row>
-            <Col ms={8}>
+            <Col md={8}>
                 <h1>Shopping Cart</h1>
-                {cartItems.length === 0 ? <Message> Your cart is empty <Link to='/'>Go 
-                Back</Link> </Message> : (
+                {cartItems.length === 0 ? 
+                    <Message> 
+                        Your cart is empty <Link to='/'>Go Back</Link> 
+                    </Message> : (
                     <ListGroup variant='flush'>
                         {cartItems.map(item => (
                             <ListGroup.Item key={item.product}>
@@ -47,7 +49,10 @@ const CartScreen = ({ match, location, history }) => {
                                     </Col>
                                     <Col md={2}>${item.price}</Col>
                                     <Col md={2}>
-                                    <Form.Control as='select' value={item.qty} onChange={(e) => 
+                                    <Form.Control 
+                                        as='select' 
+                                        value={item.qty} 
+                                        onChange={(e) => 
                                             dispatch(addToCart(item.product, Number(e.target.value))) }>
                                                 {[...Array(item.countInStock).keys()].map(x => (
                                                     <option key={x + 1} value={x + 1}>
@@ -57,7 +62,10 @@ const CartScreen = ({ match, location, history }) => {
                                             </Form.Control>
                                     </Col>
                                     <Col md={2}>
-                                        <Button type='button' variant='light' onClick={() => 
+                                        <Button 
+                                            type='button' 
+                                            variant='light' 
+                                            onClick={() => 
                                         removeFromCartHandler(item.product)}>
                                             <i className='fas fa-trash'></i>
                                         </Button>
